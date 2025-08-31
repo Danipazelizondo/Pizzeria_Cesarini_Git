@@ -1,22 +1,14 @@
 import React from 'react'
 import './CardPizza.css';
 import { formatoPrecio } from "../../../utils/formatoPrecio";
-import pizza1 from "../../../assets/img/pizza1.jpg"
-import pizza2 from "../../../assets/img/pizza2.jpg";
-import pizza3 from "../../../assets/img/pizza3.webp";
 
-const CardPizza = ({ name, price, ingredients, img }) => {
-const pizzaImages = {
-    pizza1,
-    pizza2,
-    pizza3,
-};
-
-
+const CardPizza = ({ pizza }) => {
+    const { name, img, ingredients, price } = pizza;
+    
     return (
         <div className="col mb-4">
             <div className="pizza-card card h-100 shadow-sm">
-                <img src={pizzaImages[img]} className="card-img-top" alt={name} />
+                <img src={img} className="card-img-top" alt={name} />
                 
                 <div className="card-body text-center d-flex flex-column justify-content-between">
                     <h5 className="card-title fw-bold mb-3">{name}</h5>
@@ -24,13 +16,17 @@ const pizzaImages = {
                     <hr />
 
                     <div className="pizza-ingredients">
-                        <p className="ingredients-label">Ingredientes:</p>
-                        <p className="ingredients-list">🍕 {ingredients.join(", ")}</p>
+                        <p className="ingredients-label">🍕Ingredientes:</p>
+                        <ul className="ingredients-list text-start">
+                            {ingredients.map((ingrediente, index) => (
+                            <li key={index}> {ingrediente}</li>
+                            ))}
+                        </ul>
                     </div>
 
                     <hr />
 
-                    <p className="pizza-price"> Precio: ${price.toLocaleString("es-CL")}</p>
+                    <p className="pizza-price"> Precio: {formatoPrecio(price)}</p>
                 
 
                     <div className="d-flex justify-content-center gap-2 mt-3">
