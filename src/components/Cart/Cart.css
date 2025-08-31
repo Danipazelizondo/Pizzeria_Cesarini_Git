@@ -1,0 +1,28 @@
+.cart-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.cart-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-details {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.cart-actions button {
+    min-width: 32px;
+}
