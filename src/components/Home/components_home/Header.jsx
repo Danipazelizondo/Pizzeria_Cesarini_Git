@@ -3,7 +3,7 @@ import './Header.css';
 
 const Header = () => {
     return (
-        <header className="header-bg container-fluid text-light text-end py-5 mt-3 w-100">
+        <header className="header-bg container-fluid text-light text-end py-5 mt-3 mb-4 w-100">
             <div className="container-fluid header-content">
                 <div className="ms-auto col-12 col-md-7">
                     <h1 className="hind-madurai-bold display-2 fw-bold my-1">
