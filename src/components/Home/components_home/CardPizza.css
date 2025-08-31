@@ -42,6 +42,16 @@
     color: #6c757d;
     font-size: 0.95rem;
     margin: 5px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ingredients-list li {
+    margin: 2px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pizza-price {
