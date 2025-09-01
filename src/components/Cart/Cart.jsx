@@ -30,10 +30,10 @@ const Cart = () => {
     );
 
     return (
-        <div className="cart-container container mt-5">
+        <div className="mt-5 p-2">
             
             <div className="mb-4">
-                <h2 className="h3 fw-bold text-dark">🛒 Detalles del pedido</h2>
+                <h1 className="h3 fw-bold text-dark">🛒 Detalles del pedido</h1>
                 <p className="text-muted">Agrega tus pizzas favoritas</p>
             </div>
             
@@ -43,26 +43,39 @@ const Cart = () => {
                 ) : (
                     <div>
                         {cart.map((pizza) => (
-                            <div key={pizza.id} className="cart-item">
-                                <img src={pizza.img} alt={pizza.name} className="cart-img" />
-                                <div className="cart-details">
-                                    <h5>{pizza.name}</h5>
-                                    <p>{formatoPrecio(pizza.price)}</p>
-                                    <div className="cart-actions">
+                            <div key={pizza.id} className="d-flex align-items-center justify-content-between border-bottom py-2">
+                                
+                                <div className="d-flex align-items-center">
+                                    <img
+                                        src={pizza.img}
+                                        alt={pizza.name}
+                                        className="rounded"
+                                        style={{ width: "60px", height: "60px", objectFit: "cover" }}
+                                    />
+                                    <div className="ms-3">
+                                        <h6 className="mb-0 fw-semibold text-capitalize">
+                                        {pizza.name}
+                                        </h6>
+                                        <small className="text-muted">
+                                        {formatoPrecio(pizza.price)}
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div className="d-flex align-items-center">
                                     <button
-                                        className="btn btn-sm btn-outline-danger"
+                                        className="btn btn-outline-danger btn-sm"
                                         onClick={() => decreceCantidad(pizza.id)}
                                     >
                                         ➖
                                     </button>
-                                    <span className="mx-2">{pizza.count}</span>
+                                    <span className="mx-2 fw-bold">{pizza.count}</span>
                                     <button
-                                        className="btn btn-sm btn-outline-success"
+                                        className="btn btn-outline-success btn-sm"
                                         onClick={() => incrementaCantidad(pizza.id)}
                                     >
                                         ➕
                                     </button>
-                                    </div>
                                 </div>
                             </div>
                         ))}
